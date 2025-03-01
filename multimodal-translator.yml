@@ -1,0 +1,848 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 多模态翻译
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.0.5@a0f932ba5903a8e18c129462280aa596f8832d3e02ac9f338c188386ee623d18
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/siliconflow:0.0.6@4fb8f1c1a51b6ee6204b4a62b20e342f3fce79bdd123ff3e2099dfa6adc7087e
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.0.7@11ec0b1909200f62b6ebf2cec1da981a9071d11c1ee0e2ef332ce89bcffa2544
+kind: app
+version: 0.1.5
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 5
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1740705305101-source-1740706133762-target
+      source: '1740705305101'
+      sourceHandle: source
+      target: '1740706133762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1740706133762-source-1740706224612-target
+      source: '1740706133762'
+      sourceHandle: source
+      target: '1740706224612'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1740706224612-source-1740706330870-target
+      source: '1740706224612'
+      sourceHandle: source
+      target: '1740706330870'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1740706330870-source-1740706570188-target
+      source: '1740706330870'
+      sourceHandle: source
+      target: '1740706570188'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740712350053-74f76c4e-a671-4f3b-a249-2ee33460b6d5-1740704823659-target
+      source: '1740712350053'
+      sourceHandle: 74f76c4e-a671-4f3b-a249-2ee33460b6d5
+      target: '1740704823659'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1740669440514-source-1740714053070-target
+      source: '1740669440514'
+      sourceHandle: source
+      target: '1740714053070'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1740714053070-false-1740714107286-target
+      source: '1740714053070'
+      sourceHandle: 'false'
+      target: '1740714107286'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1740714107286-source-1740714255788-target
+      source: '1740714107286'
+      sourceHandle: source
+      target: '1740714255788'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1740712350053-true-1740791026377-target
+      source: '1740712350053'
+      sourceHandle: 'true'
+      target: '1740791026377'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: variable-aggregator
+      id: 1740791026377-source-1740793974627-target
+      source: '1740791026377'
+      sourceHandle: source
+      target: '1740793974627'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1740704823659-source-1740793974627-target
+      source: '1740704823659'
+      sourceHandle: source
+      target: '1740793974627'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1740714053070-true-1740712350053-target
+      source: '1740714053070'
+      sourceHandle: 'true'
+      target: '1740712350053'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1740793974627-source-1740705305101-target
+      source: '1740793974627'
+      sourceHandle: source
+      target: '1740705305101'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1740712350053-false-1740794125064-target
+      source: '1740712350053'
+      sourceHandle: 'false'
+      target: '1740794125064'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1740794125064-source-1740793974627-target
+      source: '1740794125064'
+      sourceHandle: source
+      target: '1740793974627'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 种类
+          max_length: 5
+          options:
+          - file
+          - text
+          - image
+          required: false
+          type: select
+          variable: type
+        - label: 输入文本
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: textInput
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 文件
+          max_length: 1
+          options: []
+          required: false
+          type: file
+          variable: file
+        - label: 输出语言
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: outputLang
+        - label: 输入语言
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: inputLang
+        - label: 模式
+          max_length: 48
+          options:
+          - fast
+          - focus
+          required: true
+          type: select
+          variable: mode
+      height: 220
+      id: '1740669440514'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 1966478b-0f16-4944-9526-8700a1121022
+          role: system
+          text: '<instruction>
+
+            识别图片中的文本并输出，不要输出额外内容。请按照以下步骤完成任务：
+
+
+            1. **输入处理**：接收包含图片的输入，确保图片清晰且文本可读。
+
+            2. **文本识别**：使用光学字符识别（OCR）技术提取图片中的文本内容。
+
+            3. **输出生成**：将识别出的文本直接输出，确保输出内容与图片中的文本完全一致，不添加任何额外信息或解释。
+
+            4. **格式要求**：输出应为纯文本，不包含任何XML标签或其他格式标记。
+
+
+            请确保输出的文本准确无误，且不包含任何额外的解释或格式。
+
+            </instruction>
+
+
+            <examples>
+
+            <example>
+
+            输入：一张包含“Hello, World!”文本的图片。
+
+            输出：Hello, World!
+
+            </example>
+
+
+            <example>
+
+            输入：一张包含“2023年10月15日”文本的图片。
+
+            输出：2023年10月15日
+
+            </example>
+
+
+            <example>
+
+            输入：一张包含“请扫描二维码获取更多信息”文本的图片。
+
+            输出：请扫描二维码获取更多信息
+
+            </example>
+
+            </examples>
+
+
+            <notes>
+
+            - 如果图片中的文本无法识别或模糊不清，请输出“无法识别文本”。
+
+            - 确保输出的文本与图片中的文本完全一致，包括标点符号和空格。
+
+            - 不要对识别出的文本进行任何修改或解释。
+
+            </notes>'
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: OCR
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1740669440514'
+            - file
+          enabled: true
+      height: 115
+      id: '1740704823659'
+      position:
+        x: 1418.6650054322413
+        y: 222.8102368971883
+      positionAbsolute:
+        x: 1418.6650054322413
+        y: 222.8102368971883
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: d0d67a95-4d6a-43fe-8d8a-bae509a9d888
+          role: system
+          text: '<任务> 识别用户输入的技术术语。请用{XXX} -> {XXX}的格式展示翻译前后的技术术语对应关系。
+
+            <输入语言>
+
+            {{#1740669440514.inputLang#}}
+
+
+            <输出语言>
+
+            {{#1740669440514.outputLang#}}
+
+
+            <示例>
+
+            Transformer -> Transformer
+
+            Token -> Token
+
+            Zero Shot -> 零样本
+
+            Few Shot -> 少样本
+
+            <专有名词>'
+        - id: dbc8e3f0-48d4-4bc5-9b04-a1f4d79d2a08
+          role: user
+          text: '待处理文本：
+
+            {{#1740793974627.output#}}'
+        selected: false
+        title: 专有名词
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1740705305101'
+      position:
+        x: 3108.7862130008507
+        y: 261.4139869499126
+      positionAbsolute:
+        x: 3108.7862130008507
+        y: 261.4139869499126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 9ef32c52-8fc3-4a65-9aaf-a89a41bfb343
+          role: system
+          text: "<任务> 您是一名精通{{#1740669440514.outputLang#}}的专业译者，特别是在将专业的学术论文转换为通俗易懂的科普文章方面有着非凡的能力。请协助我把下面的{{#1740669440514.inputLang#}}段落翻译成{{#1740669440514.outputLang#}}，使其风格与科普文章相似。\n\
+            <限制> \n请根据英文内容直接翻译，维持原有的格式，不省略任何信息。\n"
+        - id: 3518b644-2b25-44c7-97d6-5f294b807e3d
+          role: user
+          text: '按要求翻译以下内容：
+
+            {{#1740793974627.output#}}'
+        selected: false
+        title: 直接翻译
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1740706133762'
+      position:
+        x: 3412.7862130008507
+        y: 261.4139869499126
+      positionAbsolute:
+        x: 3412.7862130008507
+        y: 261.4139869499126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: b00072a9-73bf-47c2-96ee-e1fb577138db
+          role: system
+          text: '<任务>
+
+            根据直接翻译的结果，指出其具体存在的问题。需要提供精确描述，避免含糊其辞，并且无需增添原文中未包含的内容或格式。具体包括但不限于：
+
+            不符合{{#1740669440514.outputLang#}}的表达习惯，请明确指出哪里不合适句子结构笨拙，请指出具体位置，无需提供修改建议，我们将在后续的自由翻译中进行调整表达含糊不清，难以理解，如果可能，可以试图进行解释
+
+            <直接翻译>
+
+            {{#1740706133762.text#}}
+
+            <原文>
+
+            {{#1740793974627.output#}}
+
+            <名词对照>
+
+            {{#1740705305101.text#}}'
+        selected: false
+        title: 反思
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1740706224612'
+      position:
+        x: 3717.8359296844737
+        y: 261.4139869499126
+      positionAbsolute:
+        x: 3717.8359296844737
+        y: 261.4139869499126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen/Qwen2.5-72B-Instruct
+          provider: langgenius/siliconflow/siliconflow
+        prompt_template:
+        - id: 94af2345-c4f6-4ea4-b759-807bf317e6ac
+          role: system
+          text: "<任务>基于初次直接翻译的成果及随后识别的各项问题，我们将进行一次重新翻译，旨在更准确地传达原文的意义。在这一过程中，我们将致力于确保内容既忠于原意，又更加贴近{{#1740669440514.outputLang#}}的表达方式，更容易被理解。在此过程中，我们将保持原有格式不变。\n\
+            <直接翻译> \n{{#1740706133762.text#}}\n<第一次翻译的问题>\n{{#1740706224612.text#}}\n\
+            <意译以下内容>\n{{#1740793974627.output#}}\n<限制>\n输出中不要有翻译以外的多余内容"
+        selected: false
+        title: 意译
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1740706330870'
+      position:
+        x: 4021.8359296844737
+        y: 261.4139869499126
+      positionAbsolute:
+        x: 4021.8359296844737
+        y: 261.4139869499126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1740706330870'
+          - text
+          variable: textOutput
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1740706570188'
+      position:
+        x: 4325.835929684474
+        y: 261.4139869499126
+      positionAbsolute:
+        x: 4325.835929684474
+        y: 261.4139869499126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 2990eda7-cf34-49cf-b296-c46f16e246e1
+            value: file
+            varType: string
+            variable_selector:
+            - '1740669440514'
+            - type
+          id: 'true'
+          logical_operator: and
+        - case_id: 74f76c4e-a671-4f3b-a249-2ee33460b6d5
+          conditions:
+          - comparison_operator: is
+            id: 82acff18-ed1b-4f3b-a4d4-70cdd3a24e12
+            value: image
+            varType: string
+            variable_selector:
+            - '1740669440514'
+            - type
+          id: 74f76c4e-a671-4f3b-a249-2ee33460b6d5
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 174
+      id: '1740712350053'
+      position:
+        x: 906.6624410219933
+        y: 141.72289363175815
+      positionAbsolute:
+        x: 906.6624410219933
+        y: 141.72289363175815
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: bb748a6a-4e10-4c3b-9717-81d90eba72c8
+            value: focus
+            varType: string
+            variable_selector:
+            - '1740669440514'
+            - mode
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 模式
+        type: if-else
+      height: 126
+      id: '1740714053070'
+      position:
+        x: 384
+        y: 282
+      positionAbsolute:
+        x: 384
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-2.0-flash-exp
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 3bcbd899-9d8e-4e82-aaaa-8b5c5689a00d
+          role: system
+          text: '<角色>
+
+            你是一个精通多国语言的翻译官
+
+
+            <任务>
+
+            将用户提供的{{#1740669440514.inputLang#}}内容翻译为{{#1740669440514.outputLang#}}
+
+            用户只提供文本或图片或文件其中一种类型的待翻译内容
+
+
+            <限制>
+
+            不得输出翻译之外的内容'
+        - id: b8d9df10-5712-4d55-a7e6-64783ddcd992
+          role: user
+          text: '<text_to_translate>{{#1740669440514.textInput#}}</text_to_translate>
+
+            <file_to_translate></file_to_translate>'
+        selected: true
+        title: LLM 6
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: low
+            variable_selector:
+            - '1740669440514'
+            - file
+          enabled: true
+      height: 90
+      id: '1740714107286'
+      position:
+        x: 679
+        y: 447
+      positionAbsolute:
+        x: 679
+        y: 447
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1740714107286'
+          - text
+          variable: textOutput
+        selected: false
+        title: 结束 2
+        type: end
+      height: 90
+      id: '1740714255788'
+      position:
+        x: 988
+        y: 447
+      positionAbsolute:
+        x: 988
+        y: 447
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: false
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1740669440514'
+        - file
+      height: 92
+      id: '1740791026377'
+      position:
+        x: 1667.2415533166704
+        y: 111.43235685747902
+      positionAbsolute:
+        x: 1667.2415533166704
+        y: 111.43235685747902
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1740791026377'
+          - text
+        - - '1740704823659'
+          - text
+        - - '1740794125064'
+          - output
+      height: 153
+      id: '1740793974627'
+      position:
+        x: 2535.1510893882482
+        y: 272.05500162180107
+      positionAbsolute:
+        x: 2535.1510893882482
+        y: 272.05500162180107
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '{{ arg1 }}'
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1740669440514'
+          - textInput
+          variable: arg1
+      height: 54
+      id: '1740794125064'
+      position:
+        x: 1801.685208075759
+        y: 404.1042104984534
+      positionAbsolute:
+        x: 1801.685208075759
+        y: 404.1042104984534
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -454.35641119724164
+      y: 68.17449430474477
+      zoom: 0.8812584157237972
